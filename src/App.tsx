@@ -1,17 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Quote } from './interfaces';
+import { QuoteProps } from './interfaces';
+import Quote from './components/Quote/Quote';
+import Button from './components/UI/Button';
 
 function App() {
-  const [quote, setQuote] = useState<Quote | null>(null);
+  const [quote, setQuote] = useState<QuoteProps | null>(null);
   const [isLoading, setIsLoading] = useState<boolean | null>(null);
 
   const url: string = 'https://api.quotable.io/random';
+  const urlA: string = 'https://api.quotable.io/quotes?author=albert-einstein';
 
   const fetchQuote = () => {
     setIsLoading(true);
     axios.get(url).then((res) => {
       setQuote(res.data);
+      setIsLoading(false);
+    });
+  };
+
+  const fetchAuthorQuotes = () => {
+    setIsLoading(true);
+    axios.get(urlA).then((res) => {
+      console.log(res.data);
       setIsLoading(false);
     });
   };
@@ -29,14 +40,11 @@ function App() {
   return (
     <>
       <header>
-        <h1>Quotes</h1>
+        <h1 onClick={fetchAuthorQuotes}>Quotes</h1>
       </header>
       <main>
-        <div>
-          <h1>{quote?.author}</h1>
-          <h2>{quote?.content}</h2>
-        </div>
-        <button onClick={changeAuthor}>Change author</button>
+        <Quote {...quote} />
+        <Button onClick={changeAuthor}>Change author</Button>
       </main>
     </>
   );

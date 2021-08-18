@@ -1,13 +1,13 @@
-export interface Quote {
-  _id: string;
+export interface QuoteProps {
+  _id?: string;
   // The quotation text
-  content: string;
+  content?: string;
   // The full name of the author
-  author: string;
+  author?: string;
   // The `slug` of the quote author
-  authorSlug: string;
+  authorSlug?: string;
   // The length of quote (number of characters)
-  length: number;
+  length?: number;
   // An array of tag names for this quote
-  tags: string[];
+  tags?: string[];
 }
