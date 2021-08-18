@@ -1,9 +1,16 @@
+import React from 'react';
 import { QuoteProps } from '../../interfaces';
 
-const Quote = ({ author, content }: QuoteProps) => {
+interface Props {
+  author: string;
+  content: string;
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+}
+
+const Quote: React.FC<Props | QuoteProps> = ({ author, content }, props) => {
   return (
     <div>
-      <h1>{author}</h1>
+      <h1 onClick={props.onClick}>{author}</h1>
       <h2>{content}</h2>
     </div>
   );
