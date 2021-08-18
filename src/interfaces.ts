@@ -12,7 +12,7 @@ export interface QuoteProps {
   tags?: string[];
 }
 
-export interface QuoteList {
+export interface QuoteLis {
   // The number of quotes returned in this response
   count: number;
   // The total number of quotes matching this query
@@ -24,7 +24,7 @@ export interface QuoteList {
   // The 1-based index of the last result included in the current response.
   lastItemIndex: number;
   // The array of quotes
-  results: Array<{
+  results?: Array<{
     _id: string;
     // The quotation text
     content: string;
