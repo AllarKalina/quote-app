@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../UI/Button';
+import Loading from '../Loading/Loading';
 import { FetchedQuote } from '../../interfaces';
 import { motion } from 'framer-motion';
 import classes from '../../styles/Quote/Quote.module.css';
@@ -7,6 +8,7 @@ import classes from '../../styles/Quote/Quote.module.css';
 interface Props {
   showList?: React.MouseEventHandler<HTMLHeadingElement>;
   clickHandler: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  isLoading: boolean | null;
 }
 
 const Quote: React.FC<FetchedQuote & Props> = ({
@@ -14,6 +16,7 @@ const Quote: React.FC<FetchedQuote & Props> = ({
   content,
   showList,
   clickHandler,
+  isLoading,
 }) => {
   const wrapper = {
     hidden: { opacity: 0, x: 100 },
@@ -21,7 +24,7 @@ const Quote: React.FC<FetchedQuote & Props> = ({
       opacity: 1,
       x: 0,
       transition: {
-        delay: 2.2,
+        delay: 2,
         duration: 1,
       },
     },
@@ -34,15 +37,18 @@ const Quote: React.FC<FetchedQuote & Props> = ({
       animate='visible'
       className={classes['content-wrapper']}
     >
-      <div className={classes['content']}>
-        <div className={classes['quote-wrapper']}>
-          <h1>{content}</h1>
+      {isLoading && <Loading />}
+      {!isLoading && (
+        <div className={classes['content']}>
+          <div className={classes['quote-wrapper']}>
+            <h1>{content}</h1>
+          </div>
+          <div className={classes['author-wrapper']}>
+            <h2>/ {author}</h2>
+          </div>
+          <Button onClick={clickHandler}>Change Author</Button>
         </div>
-        <div className={classes['author-wrapper']}>
-          <h2>/ {author}</h2>
-        </div>
-        <Button onClick={clickHandler}>Change Author</Button>
-      </div>
+      )}
     </motion.div>
   );
 };

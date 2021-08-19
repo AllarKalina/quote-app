@@ -64,6 +64,7 @@ const App = () => {
         content={quote?.content}
         showList={getAuthorQuotes}
         clickHandler={changeAuthor}
+        isLoading={isLoading}
       />
     </PageWrapper>
   );

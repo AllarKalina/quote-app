@@ -1,9 +1,10 @@
 .content-wrapper {
-  display: inline-flex;
+  display: flex;
   width: 800px;
   background-color: white;
   padding: 3rem 3rem 2rem 3rem;
   border-radius: 0.5rem;
+  justify-content: center;
 
   .content {
     display: flex;
@@ -70,6 +71,7 @@
   .content-wrapper {
     display: flex;
     flex-direction: column;
+    width: unset;
 
     .content {
       .quote-wrapper {

@@ -9,4 +9,13 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
+@media screen and (max-width: 1365px) {
+  .inner {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 /*# sourceMappingURL=PageWrapper.module.css.map */
