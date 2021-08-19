@@ -1,0 +1,73 @@
+.content-wrapper {
+  margin: 0 auto;
+  max-width: 900px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.content-wrapper .quote-wrapper {
+  max-width: 80%;
+  margin: 3rem auto;
+  min-width: 700px;
+}
+
+.content-wrapper .quote-wrapper h1 {
+  font-weight: lighter;
+  text-align: center;
+}
+
+.content-wrapper .author-wrapper {
+  float: right;
+}
+
+.content-wrapper .author-wrapper h2 {
+  font-weight: lighter;
+  color: var(--mainBlue);
+}
+
+.content-wrapper button {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, -15%);
+          transform: translate(-50%, -15%);
+  margin-bottom: 1rem;
+  cursor: pointer;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.content-wrapper button:hover {
+  background-color: white;
+  color: var(--mainBlue);
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+@media screen and (max-width: 870px) {
+  .content-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .content-wrapper .quote-wrapper {
+    min-width: unset;
+    margin: 3rem auto 1rem auto;
+  }
+  .content-wrapper .author-wrapper {
+    margin: 0 auto;
+  }
+  .content-wrapper button {
+    position: relative;
+    margin: 0 auto;
+    left: unset;
+    -webkit-transform: unset;
+            transform: unset;
+    margin-top: 1rem;
+  }
+}
+/*# sourceMappingURL=Quote.module.css.map */

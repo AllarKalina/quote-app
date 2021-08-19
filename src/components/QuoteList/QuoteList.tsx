@@ -1,6 +1,6 @@
-import { QuoteLis } from '../../interfaces';
+import { FetchedQuoteList } from '../../interfaces';
 
-const QuoteList: React.FC<QuoteLis> = ({ results }) => {
+const QuoteList: React.FC<FetchedQuoteList> = ({ results }) => {
   return (
     <div>
       <ul>

@@ -1,22 +1,22 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { QuoteLis, QuoteProps } from './interfaces';
+import { FetchedQuote } from './interfaces';
 import Quote from './components/Quote/Quote';
 import Button from './components/UI/Button';
-import QuoteList from './components/QuoteList/QuoteList';
+import classes from './styles/App/App.module.css';
 
 const App = () => {
-  const [quote, setQuote] = useState<QuoteProps | null>(null);
+  const [quote, setQuote] = useState<FetchedQuote | null>(null);
   const [isLoading, setIsLoading] = useState<boolean | null>(null);
   const [isShowList, setIsShowList] = useState<boolean | null>(null);
-  const [list, setList] = useState<QuoteLis['results'] | null>(null);
 
   const url: string = 'https://api.quotable.io/random';
 
   const fetchQuote = (url: string) => {
     setIsLoading(true);
     axios.get(url).then((res) => {
-      setQuote(res.data);
+      const { author, content } = res.data;
+      setQuote({ author: author, content: content });
       setIsLoading(false);
     });
   };
@@ -26,7 +26,6 @@ const App = () => {
     axios.get(url).then((res) => {
       console.log(res.data);
       setIsLoading(false);
-      setList(res.data.results);
     });
   };
 
@@ -57,18 +56,15 @@ const App = () => {
 
   return (
     <>
-      <header>
-        <h1>Quotes</h1>
-      </header>
-      <main>
-        <Quote
-          author={quote?.author}
-          content={quote?.content}
-          showList={getAuthorQuotes}
-        />
-        <Button onClick={changeAuthor}>Change author</Button>
-        {isShowList && <QuoteList results={list} />}
-      </main>
+      <div className={classes['heading-wrapper']}>
+        <h1>/ Quotes</h1>
+      </div>
+      <Quote
+        author={quote?.author}
+        content={quote?.content}
+        showList={getAuthorQuotes}
+        clickHandler={changeAuthor}
+      />
     </>
   );
 };

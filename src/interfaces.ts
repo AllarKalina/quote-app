@@ -1,18 +1,9 @@
-export interface QuoteProps {
-  _id?: string;
-  // The quotation text
+export interface FetchedQuote {
   content?: string;
-  // The full name of the author
   author?: string;
-  // The `slug` of the quote author
-  authorSlug?: string;
-  // The length of quote (number of characters)
-  length?: number;
-  // An array of tag names for this quote
-  tags?: string[];
 }
 
-export interface QuoteLis {
+export interface FetchedQuoteList {
   // The number of quotes returned in this response
   count: number;
   // The total number of quotes matching this query

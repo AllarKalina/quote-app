@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from '../../styles/Button/Button.module.css';
 
 interface ButtonProps {
   children: string;
@@ -6,7 +7,11 @@ interface ButtonProps {
 }
 
 const Button = ({ children, onClick }: ButtonProps) => {
-  return <button onClick={onClick}>{children}</button>;
+  return (
+    <button onClick={onClick} className={classes.button}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;

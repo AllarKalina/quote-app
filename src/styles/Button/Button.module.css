@@ -1,0 +1,9 @@
+.button {
+  color: white;
+  background-color: var(--mainBlue);
+  border: 1px solid var(--mainBlue);
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+}
+/*# sourceMappingURL=Button.module.css.map */
