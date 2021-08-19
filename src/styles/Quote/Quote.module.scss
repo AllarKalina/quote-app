@@ -1,6 +1,6 @@
 .content-wrapper {
-  margin: 0 auto;
-  max-width: 900px;
+  display: inline-flex;
+  width: 800px;
   background-color: white;
   padding: 3rem 3rem 2rem 3rem;
   border-radius: 0.5rem;
@@ -12,7 +12,7 @@
     .quote-wrapper {
       width: 100%;
       min-width: 700px;
-      margin-top: 5rem;
+      margin-top: 1rem;
 
       h1 {
         font-weight: lighter;
@@ -23,21 +23,44 @@
     .author-wrapper {
       margin-left: auto;
       margin-top: 2rem;
+
       h2 {
+        display: inline-block;
+        position: relative;
         font-weight: lighter;
         color: var(--mainBlue);
+        cursor: pointer;
+      }
+
+      h2::after {
+        content: '';
+        width: 0px;
+        height: 2px;
+        left: 10px;
+        background: var(--mainBlue);
+        transition: 300ms;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        bottom: -10px;
+      }
+
+      h2:hover {
+        &::after {
+          width: 100%;
+        }
       }
     }
 
     button {
       margin: 2rem auto 0 auto;
       cursor: pointer;
-      transition: 0.2s linear;
+      transition: 0.3s linear;
 
       &:hover {
         background-color: white;
         color: var(--mainBlue);
-        transition: 0.2s linear;
+        transition: 0.3s linear;
       }
     }
   }

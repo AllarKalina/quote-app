@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CAAC;EACL,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,YAAY;EAC7B,KAAK,EAAE,IAAI;EACX,WAAW,EAAE,MAAM;CACpB",
+    "sources": [
+        "PageWrapper.module.scss"
+    ],
+    "names": [],
+    "file": "PageWrapper.module.css"
+}

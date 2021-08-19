@@ -1,6 +1,8 @@
 .content-wrapper {
-  margin: 0 auto;
-  max-width: 900px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 800px;
   background-color: white;
   padding: 3rem 3rem 2rem 3rem;
   border-radius: 0.5rem;
@@ -19,7 +21,7 @@
 .content-wrapper .content .quote-wrapper {
   width: 100%;
   min-width: 700px;
-  margin-top: 5rem;
+  margin-top: 1rem;
 }
 
 .content-wrapper .content .quote-wrapper h1 {
@@ -33,22 +35,44 @@
 }
 
 .content-wrapper .content .author-wrapper h2 {
+  display: inline-block;
+  position: relative;
   font-weight: lighter;
   color: var(--mainBlue);
+  cursor: pointer;
+}
+
+.content-wrapper .content .author-wrapper h2::after {
+  content: '';
+  width: 0px;
+  height: 2px;
+  left: 10px;
+  background: var(--mainBlue);
+  -webkit-transition: 300ms;
+  transition: 300ms;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  bottom: -10px;
+}
+
+.content-wrapper .content .author-wrapper h2:hover::after {
+  width: 100%;
 }
 
 .content-wrapper .content button {
   margin: 2rem auto 0 auto;
   cursor: pointer;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 .content-wrapper .content button:hover {
   background-color: white;
   color: var(--mainBlue);
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 @media screen and (max-width: 870px) {

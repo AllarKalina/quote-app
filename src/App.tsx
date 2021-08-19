@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { FetchedQuote } from './interfaces';
+import axios from 'axios';
+import PageWrapper from './components/UI/PageWrapper';
 import Quote from './components/Quote/Quote';
 import Loading from './components/Loading/Loading';
 import classes from './styles/App/App.module.css';
+import Heading from './components/Heading/Heading';
 
 const App = () => {
   const [quote, setQuote] = useState<FetchedQuote | null>(null);
@@ -54,20 +56,16 @@ const App = () => {
     }
   };
 
-  if (isLoading) return <Loading />;
-
   return (
-    <>
-      <div className={classes['heading-wrapper']}>
-        <h1>/ Quotes</h1>
-      </div>
+    <PageWrapper>
+      <Heading />
       <Quote
         author={quote?.author}
         content={quote?.content}
         showList={getAuthorQuotes}
         clickHandler={changeAuthor}
       />
-    </>
+    </PageWrapper>
   );
 };
 
