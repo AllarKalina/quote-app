@@ -1,0 +1,37 @@
+.inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 11.5rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 10rem;
+}
+
+.inner h1 {
+  color: var(--mainBlue);
+}
+
+.inner .con {
+  margin-top: 2rem;
+  width: 4rem;
+  height: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.inner .con .loadingCircle {
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--mainBlue);
+  border-radius: 0.25rem;
+}
+/*# sourceMappingURL=Loading.module.css.map */

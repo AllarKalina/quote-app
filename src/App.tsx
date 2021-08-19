@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FetchedQuote } from './interfaces';
 import Quote from './components/Quote/Quote';
-import Button from './components/UI/Button';
+import Loading from './components/Loading/Loading';
 import classes from './styles/App/App.module.css';
 
 const App = () => {
@@ -35,8 +35,10 @@ const App = () => {
 
   const changeAuthor = () => {
     setIsLoading(true);
-    fetchQuote(url);
-    setIsShowList(false);
+    setTimeout(() => {
+      fetchQuote(url);
+      setIsShowList(false);
+    }, 500);
   };
 
   const getAuthorQuotes = () => {
@@ -52,7 +54,7 @@ const App = () => {
     }
   };
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <Loading />;
 
   return (
     <>

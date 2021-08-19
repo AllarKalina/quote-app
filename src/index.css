@@ -20,7 +20,7 @@ body {
 main {
   display: flex;
   flex-direction: column;
-  padding: 5em 3em;
+  padding: 20vh 3rem;
   justify-content: center;
   align-items: center;
 }

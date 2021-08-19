@@ -16,13 +16,15 @@ const Quote: React.FC<FetchedQuote & Props> = ({
 }) => {
   return (
     <div className={classes['content-wrapper']}>
-      <div className={classes['quote-wrapper']}>
-        <h1>{content}</h1>
+      <div className={classes['content']}>
+        <div className={classes['quote-wrapper']}>
+          <h1>{content}</h1>
+        </div>
+        <div className={classes['author-wrapper']}>
+          <h2>/ {author}</h2>
+        </div>
+        <Button onClick={clickHandler}>Change Author</Button>
       </div>
-      <div className={classes['author-wrapper']}>
-        <h2>/ {author}</h2>
-      </div>
-      <Button onClick={clickHandler}>Change Author</Button>
     </div>
   );
 };

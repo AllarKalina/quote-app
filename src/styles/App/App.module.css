@@ -5,5 +5,6 @@ main {
 
 .heading-wrapper h1 {
   color: var(--mainBlue);
+  font-weight: lighter;
 }
 /*# sourceMappingURL=App.module.css.map */

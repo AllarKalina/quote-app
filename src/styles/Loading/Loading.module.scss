@@ -1,0 +1,27 @@
+.inner {
+  display: flex;
+  align-items: center;
+  width: 11.5rem;
+  justify-content: space-between;
+  margin-top: 10rem;
+
+  h1 {
+    color: var(--mainBlue);
+  }
+
+  .con {
+    margin-top: 2rem;
+    width: 4rem;
+    height: 2rem;
+    display: flex;
+    justify-content: space-around;
+
+    .loadingCircle {
+      display: block;
+      width: 0.5rem;
+      height: 0.5rem;
+      background-color: var(--mainBlue);
+      border-radius: 0.25rem;
+    }
+  }
+}
