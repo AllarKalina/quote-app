@@ -1,0 +1,33 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1rem;
+}
+
+.container h1 {
+  color: var(--mainBlue);
+}
+
+.container button {
+  margin-top: 1.5rem;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.container button:hover {
+  background-color: white;
+  color: var(--mainBlue);
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+/*# sourceMappingURL=Error.module.css.map */

@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+
+  h1 {
+    color: var(--mainBlue);
+  }
+
+  button {
+    margin-top: 1.5rem;
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+    transition: 0.3s linear;
+
+    &:hover {
+      background-color: white;
+      color: var(--mainBlue);
+      transition: 0.3s linear;
+    }
+  }
+}

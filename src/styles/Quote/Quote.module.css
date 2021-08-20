@@ -9,7 +9,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: auto 0;
+  margin: 5rem 0 0 0;
 }
 
 .content-wrapper .content {
@@ -147,6 +147,14 @@
   }
   .content-wrapper .content .author-wrapper {
     margin: 0 auto;
+  }
+  .content-wrapper .content .user-choice .input-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    top: 50%;
+    left: 0%;
   }
   .content-wrapper .content button {
     position: relative;

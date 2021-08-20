@@ -5,7 +5,7 @@
   padding: 1rem 3rem 2rem 3rem;
   border-radius: 0.5rem;
   justify-content: center;
-  margin: auto 0;
+  margin: 5rem 0 0 0;
 
   .content {
     display: flex;
@@ -127,6 +127,14 @@
 
       .author-wrapper {
         margin: 0 auto;
+      }
+
+      .user-choice {
+        .input-wrapper {
+          flex-direction: column;
+          top: 50%;
+          left: 0%;
+        }
       }
 
       button {

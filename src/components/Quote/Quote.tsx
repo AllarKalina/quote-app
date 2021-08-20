@@ -65,7 +65,11 @@ const Quote: React.FC<FetchedQuote & Props> = ({
               <RiSettingsFill size='30px' color='#224177' />
             </button>
             {toggle && (
-              <div className={classes['input-wrapper']}>
+              <motion.div
+                initial={{ x: '-40px', opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                className={classes['input-wrapper']}
+              >
                 <div className={classes.input}>
                   <h3>Maximum length</h3>
                   <input
@@ -90,7 +94,7 @@ const Quote: React.FC<FetchedQuote & Props> = ({
                   />
                 </div>
                 <Button onClick={setSettings}>Set</Button>
-              </div>
+              </motion.div>
             )}
           </div>
           <div className={classes['quote-wrapper']}>

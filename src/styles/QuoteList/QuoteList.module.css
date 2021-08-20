@@ -40,4 +40,10 @@
   background-color: var(--mainBlue);
   color: white;
 }
+
+@media screen and (max-width: 870px) {
+  .list {
+    width: unset;
+  }
+}
 /*# sourceMappingURL=QuoteList.module.css.map */
