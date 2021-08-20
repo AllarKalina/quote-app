@@ -2,7 +2,7 @@
   display: flex;
   width: 800px;
   background-color: white;
-  padding: 3rem 3rem 2rem 3rem;
+  padding: 1rem 3rem 2rem 3rem;
   border-radius: 0.5rem;
   justify-content: center;
   margin: auto 0;
@@ -10,6 +10,44 @@
   .content {
     display: flex;
     flex-direction: column;
+
+    .user-choice {
+      position: relative;
+      top: 10%;
+
+      .settings {
+        margin: 0 0 3rem 0;
+        background-color: unset;
+        border: unset;
+      }
+
+      .input-wrapper {
+        position: absolute;
+        top: -20%;
+        left: 7%;
+        background-color: rgba(255, 255, 255, 0.925);
+        border: 1px solid black;
+        align-items: center;
+        display: flex;
+
+        button {
+          padding: 0.5rem 2rem;
+          margin: 0;
+          margin-right: 1rem;
+        }
+
+        .input {
+          display: flex;
+          justify-content: space-between;
+          padding: 1rem;
+
+          h3 {
+            font-weight: lighter;
+            margin-right: 0.5rem;
+          }
+        }
+      }
+    }
 
     .quote-wrapper {
       width: 100%;

@@ -6,4 +6,7 @@
   cursor: pointer;
   list-style: none;
   border: 2px var(--mainBlue) solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

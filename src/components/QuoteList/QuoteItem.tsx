@@ -3,6 +3,7 @@ import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import classes from '../../styles/QuoteItem/QuoteItem.module.css';
 import Content from './Content';
 import { useInView } from 'react-intersection-observer';
+import { FiPlusCircle, FiMinusCircle } from 'react-icons/fi';
 
 interface Props {
   id: string;
@@ -44,6 +45,7 @@ const QuoteItem: React.FC<Props> = ({ id, content }) => {
         {!isOpen && (
           <motion.div
             layout
+            key={id}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{
@@ -56,7 +58,16 @@ const QuoteItem: React.FC<Props> = ({ id, content }) => {
             <h2>{content.split(' ').slice(0, 5).join(' ') + '...'}</h2>
           </motion.div>
         )}
-        {isOpen && <Content content={content} />}
+        {isOpen && <Content content={content} key={id} />}
+        {!isOpen ? (
+          <motion.div layout>
+            <FiPlusCircle size='30px' color='#224177' />
+          </motion.div>
+        ) : (
+          <motion.div layout>
+            <FiMinusCircle size='30px' color='#224177' />
+          </motion.div>
+        )}
       </AnimatePresence>
     </motion.li>
   );

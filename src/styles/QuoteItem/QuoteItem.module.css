@@ -6,5 +6,14 @@
   cursor: pointer;
   list-style: none;
   border: 2px var(--mainBlue) solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=QuoteItem.module.css.map */

@@ -4,7 +4,7 @@
   display: flex;
   width: 800px;
   background-color: white;
-  padding: 3rem 3rem 2rem 3rem;
+  padding: 1rem 3rem 2rem 3rem;
   border-radius: 0.5rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -20,6 +20,52 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.content-wrapper .content .user-choice {
+  position: relative;
+  top: 10%;
+}
+
+.content-wrapper .content .user-choice .settings {
+  margin: 0 0 3rem 0;
+  background-color: unset;
+  border: unset;
+}
+
+.content-wrapper .content .user-choice .input-wrapper {
+  position: absolute;
+  top: -20%;
+  left: 7%;
+  background-color: rgba(255, 255, 255, 0.925);
+  border: 1px solid black;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.content-wrapper .content .user-choice .input-wrapper button {
+  padding: 0.5rem 2rem;
+  margin: 0;
+  margin-right: 1rem;
+}
+
+.content-wrapper .content .user-choice .input-wrapper .input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem;
+}
+
+.content-wrapper .content .user-choice .input-wrapper .input h3 {
+  font-weight: lighter;
+  margin-right: 0.5rem;
 }
 
 .content-wrapper .content .quote-wrapper {
