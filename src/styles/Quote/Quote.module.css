@@ -45,6 +45,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  border-radius: 0.5rem;
 }
 
 .content-wrapper .content .user-choice .input-wrapper button {

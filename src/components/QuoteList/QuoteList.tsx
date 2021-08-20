@@ -9,13 +9,7 @@ const QuoteList: React.FC<FetchedQuoteList> = ({ results }) => {
   const size: number = 18;
   let resultsCopy = results;
 
-  useEffect(() => {
-    if (state === 'Desc') {
-      resultsCopy = results.sort().reverse();
-    } else if (state === 'Asc') {
-      resultsCopy = results.sort();
-    }
-  }, [state]);
+  useEffect(() => {}, [state]);
 
   return (
     <motion.ul layout className={classes.list}>
