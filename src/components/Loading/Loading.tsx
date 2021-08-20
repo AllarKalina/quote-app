@@ -24,7 +24,8 @@ const Loading = () => {
 
   const cirTrans = {
     duration: 0.3,
-    yoyo: Infinity,
+    repeatType: 'reverse',
+    repeat: Infinity,
     ease: 'easeInOut',
   };
 

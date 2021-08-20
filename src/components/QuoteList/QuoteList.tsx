@@ -10,21 +10,18 @@ const QuoteList: React.FC<FetchedQuoteList> = ({ results }) => {
   const size: number = 18;
 
   useEffect(() => {
+    const copy = [...results];
     if (state === 1) {
-      const sorted = results.sort((a, b) =>
+      const sorted = copy.sort((a, b) =>
         a.content[0] > b.content[0] ? 1 : -1
       );
       setArray(sorted);
     } else {
-      const sorted = results.sort((a, b) =>
+      const sorted = copy.sort((a, b) =>
         a.content[0] < b.content[0] ? 1 : -1
       );
-      console.log('asc');
-
       setArray(sorted);
     }
-
-    console.log('lol');
   }, [results, state]);
 
   return (

@@ -21,7 +21,6 @@ const App = () => {
     Method for fetching random quote
   */
   const fetchQuote = (url: string) => {
-    console.log(url);
     setIsLoading(true);
     axios
       .get(url)
