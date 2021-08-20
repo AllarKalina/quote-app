@@ -1,22 +1,27 @@
 import React from 'react';
 import Button from '../UI/Button';
 import Loading from '../Loading/Loading';
-import { FetchedQuote } from '../../interfaces';
-import { motion } from 'framer-motion';
+import { AuthorQuote, FetchedQuote } from '../../interfaces';
+import { AnimateSharedLayout, motion } from 'framer-motion';
 import classes from '../../styles/Quote/Quote.module.css';
+import QuoteList from '../QuoteList/QuoteList';
 
 interface Props {
-  showList?: React.MouseEventHandler<HTMLHeadingElement>;
+  isShowList: boolean | null;
   clickHandler: (e: React.MouseEvent<HTMLButtonElement>) => void;
   isLoading: boolean | null;
+  getAuthorQuotes: () => void;
+  authorQuotes: AuthorQuote[];
 }
 
 const Quote: React.FC<FetchedQuote & Props> = ({
   author,
   content,
-  showList,
+  isShowList,
   clickHandler,
   isLoading,
+  getAuthorQuotes,
+  authorQuotes,
 }) => {
   const wrapper = {
     hidden: { opacity: 0, x: 100 },
@@ -44,9 +49,15 @@ const Quote: React.FC<FetchedQuote & Props> = ({
             <h1>{content}</h1>
           </div>
           <div className={classes['author-wrapper']}>
-            <h2>/ {author}</h2>
+            <h2
+              onClick={getAuthorQuotes}
+              className={isShowList ? classes.active : ''}
+            >
+              / {author}
+            </h2>
           </div>
           <Button onClick={clickHandler}>Change Author</Button>
+          {isShowList && <QuoteList results={authorQuotes} />}
         </div>
       )}
     </motion.div>

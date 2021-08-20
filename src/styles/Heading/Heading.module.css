@@ -1,3 +1,7 @@
+.heading {
+  height: 100%;
+}
+
 .heading h1 {
   color: white;
   font-size: Max(3.5vw, 3rem);

@@ -1,18 +1,16 @@
-import { useState, useEffect } from 'react';
-import { FetchedQuote } from './interfaces';
+import { useState, useEffect, useReducer } from 'react';
+import { AuthorQuote, FetchedQuote, FetchedQuoteList } from './interfaces';
 import axios from 'axios';
 import PageWrapper from './components/UI/PageWrapper';
 import Quote from './components/Quote/Quote';
-import Loading from './components/Loading/Loading';
-import classes from './styles/App/App.module.css';
 import Heading from './components/Heading/Heading';
 
 const App = () => {
   const [quote, setQuote] = useState<FetchedQuote | null>(null);
   const [isLoading, setIsLoading] = useState<boolean | null>(null);
   const [isShowList, setIsShowList] = useState<boolean | null>(null);
-
-  const url: string = 'https://api.quotable.io/random';
+  const [quoteList, setQuoteList] = useState<AuthorQuote[]>([]);
+  let url: string = 'https://api.quotable.io/random';
 
   const fetchQuote = (url: string) => {
     setIsLoading(true);
@@ -27,13 +25,14 @@ const App = () => {
     setIsLoading(true);
     axios.get(url).then((res) => {
       console.log(res.data);
+      setQuoteList(res.data.results);
       setIsLoading(false);
     });
   };
 
   useEffect(() => {
     fetchQuote(url);
-  }, []);
+  }, [url]);
 
   const changeAuthor = () => {
     setIsLoading(true);
@@ -41,6 +40,10 @@ const App = () => {
       fetchQuote(url);
       setIsShowList(false);
     }, 500);
+  };
+
+  const getQuote = () => {
+    fetchQuote(url);
   };
 
   const getAuthorQuotes = () => {
@@ -62,9 +65,11 @@ const App = () => {
       <Quote
         author={quote?.author}
         content={quote?.content}
-        showList={getAuthorQuotes}
+        isShowList={isShowList}
+        getAuthorQuotes={getAuthorQuotes}
         clickHandler={changeAuthor}
         isLoading={isLoading}
+        authorQuotes={quoteList}
       />
     </PageWrapper>
   );

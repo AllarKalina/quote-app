@@ -5,6 +5,7 @@
   padding: 3rem 3rem 2rem 3rem;
   border-radius: 0.5rem;
   justify-content: center;
+  margin: auto 0;
 
   .content {
     display: flex;
@@ -47,6 +48,12 @@
       }
 
       h2:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+
+      .active {
         &::after {
           width: 100%;
         }
