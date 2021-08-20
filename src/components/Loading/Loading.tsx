@@ -24,7 +24,7 @@ const Loading = () => {
 
   const cirTrans = {
     duration: 0.3,
-    yoyo: Infinity
+    yoyo: Infinity,
     ease: 'easeInOut',
   };
 
