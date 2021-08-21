@@ -26,50 +26,55 @@ const QuoteItem: React.FC<Props> = ({ id, content }) => {
     if (inView) {
       animation.start('visible');
     }
+    if (!inView) {
+      animation.start('hidden');
+    }
   }, [inView, animation]);
 
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
-    <motion.li
-      ref={ref}
-      animate={animation}
-      initial={'hidden'}
-      variants={quoteVariants}
-      key={id}
-      layout
-      onClick={toggleOpen}
-      className={classes.item}
-    >
-      <AnimatePresence>
-        {!isOpen && (
-          <motion.div
-            layout
-            key={id}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{
-              opacity: 0,
-              transition: {
-                duration: 0.2,
-              },
-            }}
-          >
-            <h2>{content.split(' ').slice(0, 5).join(' ') + '...'}</h2>
-          </motion.div>
-        )}
-        {isOpen && <Content content={content} key={id} />}
-        {!isOpen ? (
-          <motion.div layout>
-            <FiPlusCircle size='30px' color='#224177' />
-          </motion.div>
-        ) : (
-          <motion.div layout>
-            <FiMinusCircle size='30px' color='#224177' />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.li>
+    <AnimatePresence>
+      <motion.li
+        ref={ref}
+        animate={animation}
+        initial={'hidden'}
+        variants={quoteVariants}
+        key={id}
+        layout
+        onClick={toggleOpen}
+        className={classes.item}
+      >
+        <AnimatePresence>
+          {!isOpen && (
+            <motion.div
+              layout
+              key={id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{
+                opacity: 0,
+                transition: {
+                  duration: 0.2,
+                },
+              }}
+            >
+              <h2>{content.split(' ').slice(0, 5).join(' ') + '...'}</h2>
+            </motion.div>
+          )}
+          {isOpen && <Content content={content} key={id} />}
+          {!isOpen ? (
+            <motion.div layout>
+              <FiPlusCircle size='30px' color='#224177' />
+            </motion.div>
+          ) : (
+            <motion.div layout>
+              <FiMinusCircle size='30px' color='#224177' />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.li>
+    </AnimatePresence>
   );
 };
 

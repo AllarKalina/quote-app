@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import classes from '../../styles/QuoteList/QuoteList.module.css';
 
 const QuoteList: React.FC<FetchedQuoteList> = ({ results }) => {
-  const [state, setState] = useState<number | null>(1);
+  const [state, setState] = useState<number | null>(null);
   const [array, setArray] = useState<AuthorQuote[]>([]);
   const size: number = 18;
 
@@ -16,16 +16,35 @@ const QuoteList: React.FC<FetchedQuoteList> = ({ results }) => {
         a.content[0] > b.content[0] ? 1 : -1
       );
       setArray(sorted);
-    } else {
+    } else if (state === 2) {
       const sorted = copy.sort((a, b) =>
         a.content[0] < b.content[0] ? 1 : -1
       );
       setArray(sorted);
+    } else {
+      setArray(copy);
     }
   }, [results, state]);
 
+  const listVariants = {
+    hidden: { x: '-200px', opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.2,
+      },
+    },
+  };
+
   return (
-    <motion.ul layout className={classes.list}>
+    <motion.ul
+      layout
+      className={classes.list}
+      variants={listVariants}
+      initial='hidden'
+      animate='visible'
+    >
       <div className={classes['sort-wrapper']}>
         <h2>Sort by:</h2>
         <button
